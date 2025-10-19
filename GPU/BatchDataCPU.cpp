@@ -1,6 +1,4 @@
-//
-// Created by jamalids on 15/04/25.
-//
+
 #include "BatchDataCPU.h"
 #include "BatchData.h"  // This must provide the complete definition of BatchData.
 #include <numeric>
@@ -77,3 +75,4 @@ BatchDataCPU::BatchDataCPU(const BatchData& batch_data, bool copy_data)
     }
   }
 }
+
