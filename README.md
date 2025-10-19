@@ -93,6 +93,8 @@ Each result CSV file includes:
 --bits       : Data bit width (e.g., 64)
 --method     : One of [zstd, snappy, lz4, bzip2, zlib, fastlz]
 
+----------------GPU----------------------
+The GPU part is a separate project and is placed in the GPU folder
 
 
 
