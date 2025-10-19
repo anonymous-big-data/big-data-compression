@@ -1,6 +1,3 @@
-// nvcomp_gds.cu
-// Component + Whole compression; codec selected at runtime via NVCOMP_CODEC
-// Supports: LZ4 (always), GDeflate/Zstd if headers are present.
 
 #include <fcntl.h>
 #include <iostream>
@@ -846,3 +843,4 @@ int main(int argc, char **argv) {
   }
   return 0;
 }
+
