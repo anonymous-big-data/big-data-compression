@@ -238,5 +238,6 @@ def run_analysis(folder_path):
     print(f"Results saved to: {out_csv}")
 
 if __name__ == "__main__":
-    folder_path =  r"C:\Users\jamalids\Downloads\dataset\OBS"
+    folder_path =  r"C:\Users\Downloads\dataset\OBS"
     run_analysis(folder_path)
+
