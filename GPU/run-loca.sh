@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # ---- CONFIG (edit if your paths differ) ----
-DATASET_DIR="/home/jamalids/Documents/2D/data1/Fcbench/Fcbench-dataset/64/final"
-EXECUTABLE="/home/jamalids/Documents/gpu11/typed-data-transformation/gpu-compression/examples/nvcomp_gds"
-RESULTS_DIR="/home/jamalids/Documents/results1"
+DATASET_DIR="
+EXECUTABLE="./nvcomp_gds"
+RESULTS_DIR="./results1"
 
 # CUDA runtime (match toolkit 12.3) + avoid PTX JIT (your driver is 12.2)
 export LD_LIBRARY_PATH="/usr/local/cuda-12.3/targets/x86_64-linux/lib:${LD_LIBRARY_PATH:-}"
@@ -63,4 +63,5 @@ done
 echo "=====> All datasets processed successfully <====="
 ####NVCOMP_CODEC=lz4 ./run_local.sh
     #
+
     #NVCOMP_CODEC=zstd ./run_local.sh
