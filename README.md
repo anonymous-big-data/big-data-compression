@@ -1,7 +1,7 @@
 
-===============================================
+===========================================
  Parallel Compression Benchmarking Project
-===============================================
+===========================================
 
 This project benchmarks parallel compression using multiple algorithms: 
 Zstd, LZ4, Snappy, Bzip2, Zlib, and FastLZ using C++17 and OpenMP.
@@ -65,6 +65,7 @@ DOWNLOAD DATASETS
 -----------------------------------------------
 
 Local links have been removed due to the anonymous review process. The datasets can be downloaded from the FCBench repository at: https://github.com/hpdps-group/FCBench
+
 Place the downloaded datasets into your `DATASET_DIR` before running the benchmark.
 
 
@@ -91,5 +92,6 @@ Each result CSV file includes:
 --threads    : Number of OpenMP threads
 --bits       : Data bit width (e.g., 64)
 --method     : One of [zstd, snappy, lz4, bzip2, zlib, fastlz]
+
 
 
