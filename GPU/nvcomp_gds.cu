@@ -87,7 +87,6 @@ static inline void trim_inplace(std::string& s) {
 }
 
 static inline bool parse_double_loose(const std::string& s, double& out) {
-  // accept leading/trailing spaces, scientific, NaN/Inf; reject partials
   errno = 0;
   char* end = nullptr;
   out = std::strtod(s.c_str(), &end);
@@ -140,7 +139,6 @@ std::pair<std::vector<T>, size_t> loadTSVDataset11(const std::string &fp) {
 
     std::replace(line.begin(), line.end(), ',', '\t');
 
-    // Strip UTF-8 BOM at line start (if present)
     if (rows == 0 && line.size() >= 3 &&
         static_cast<unsigned char>(line[0]) == 0xEF &&
         static_cast<unsigned char>(line[1]) == 0xBB &&
@@ -151,10 +149,8 @@ std::pair<std::vector<T>, size_t> loadTSVDataset11(const std::string &fp) {
     std::stringstream ss(line);
     std::string val;
 
-    // Column 1: skip (id/timestamp/etc.)
     std::getline(ss, val, '\t');
 
-    // If first data row looks like a header (letters in later cols), skip row once
     if (!header_checked) {
       std::string peek = ss.str();
       std::streampos pos = ss.tellg();
@@ -186,8 +182,6 @@ std::pair<std::vector<T>, size_t> loadTSVDataset11(const std::string &fp) {
       if (parse_double_loose(val, d)) {
         arr.push_back(static_cast<T>(d));
       } else {
-        // Non-numeric token: skip silently
-        // fprintf(stderr, "warn: skipped token: \"%s\"\n", val.c_str());
         continue;
       }
     }
@@ -602,7 +596,6 @@ int runSingleDataset(const std::string &path, int precisionBits, int runId){
   std::string csvFilename = "/home/jamalids/Documents/" + datasetName + ".csv";
 
   // --- WHOLE: choose codec via env (default LZ4) ---
-  // Copy host -> device input once
   cudaStream_t copyStream;
   CUDA_CHECK(cudaStreamCreate(&copyStream));
   uint8_t *d_in = nullptr;
@@ -843,4 +836,5 @@ int main(int argc, char **argv) {
   }
   return 0;
 }
+
 
