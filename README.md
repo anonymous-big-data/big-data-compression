@@ -60,15 +60,6 @@ EXTERNAL LIBRARIES (automatically fetched by CMake):
 
 4. Sample manual execution:
    ./build/external_tools/parallel-test --dataset ./yourdata.dat --outcsv result.csv --threads 16 --bits 64 --method=zstd
------------------------------------------------
-DOWNLOAD DATASETS
------------------------------------------------
-
-You can download example datasets from the following link:  
-**[Dataset Download Link](https://mcmasteru365-my.sharepoint.com/:u:/g/personal/cheshmik_mcmaster_ca/EZXo7SSbRtJNtZbo8nWvQNMB9uy6dsueRU1TdCETRCp7sg?e=8LXJ08)**
-
-Place the downloaded datasets into your `DATASET_DIR` before running the benchmark.
-
 
 -----------------------------------------------
  OUTPUT
@@ -93,3 +84,4 @@ Each result CSV file includes:
 --threads    : Number of OpenMP threads
 --bits       : Data bit width (e.g., 64)
 --method     : One of [zstd, snappy, lz4, bzip2, zlib, fastlz]
+
