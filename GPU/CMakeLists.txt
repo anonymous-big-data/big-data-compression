@@ -50,7 +50,6 @@ else()
   set(NVCOMP_CPU_LIBRARY_NAME "${NVCOMP_NAMESPACE}nvcomp_cpu")
 endif()
 
-# Applicable GPU architectures
 set(GPU_ARCHS "60;70-real")
 if(CMAKE_CUDA_COMPILER_VERSION VERSION_GREATER "9")
   set(GPU_ARCHS ${GPU_ARCHS} "75-real")
@@ -68,7 +67,6 @@ if(CMAKE_CUDA_COMPILER_VERSION VERSION_GREATER_EQUAL "12.0")
   set(GPU_ARCHS ${GPU_ARCHS} "90")
 endif()
 
-# Add gdeflate CPU examples
 if(BUILD_GDEFLATE_CPU)
   file(GLOB GDEFLATE_CPU_SOURCES *gdeflate_cpu*.cpp *gdeflate_cpu*.cu)
   foreach(EXAMPLE_SOURCE ${GDEFLATE_CPU_SOURCES})
@@ -82,7 +80,6 @@ if(BUILD_GDEFLATE_CPU)
   endforeach(EXAMPLE_SOURCE ${GDEFLATE_CPU_SOURCES})
 endif()
 
-# Add GDS example
 if (BUILD_GDS_EXAMPLE AND NOT MSVC)
   add_executable (nvcomp_gds nvcomp_gds.cu)
   set_property(TARGET nvcomp_gds PROPERTY CUDA_ARCHITECTURES ${GPU_ARCHS})
@@ -108,14 +105,12 @@ else()
   message(WARNING "Skipping building LZ4 CPU example, as no LZ4 library was found.")
 endif()
 
-# Add quickstart examples
 add_executable(low_level_quickstart_example low_level_quickstart_example.cpp)
 target_link_libraries(low_level_quickstart_example PRIVATE ${NVCOMP_LIBRARY_NAME} CUDA::cudart_static CUDA::cuda_driver)
 
 add_executable(high_level_quickstart_example high_level_quickstart_example.cpp)
 target_link_libraries(high_level_quickstart_example PRIVATE ${NVCOMP_LIBRARY_NAME} CUDA::cudart_static CUDA::cuda_driver)
 
-# Add Deflate CPU examples
 find_package (ZLIB)
 find_path(LIBDEFLATE_INCLUDE_DIR NAMES libdeflate.h)
 find_library(LIBDEFLATE_LIBRARY NAMES deflate)
@@ -137,7 +132,6 @@ else()
   message(WARNING "Skipping building Deflate CPU example, as the zlib and/or libdeflate libraries were not found.")
 endif()
 
-# Add GZIP example
 if (ZLIB_FOUND)
   add_executable(gzip_gpu_decompression gzip_gpu_decompression.cu)
   set_property(TARGET gzip_gpu_decompression PROPERTY CUDA_ARCHITECTURES ${GPU_ARCHS})
@@ -154,4 +148,5 @@ find_path(ZSTD_INCLUDE_DIR NAMES zstd.h
 )
 if (TARGET gdeflate_cpu_compression)
   target_link_libraries(gdeflate_cpu_compression PRIVATE lz4)
+
 endif()
