@@ -1,7 +1,7 @@
 
-===========================================
+===================================
  Parallel Compression Benchmarking Project
-===========================================
+===================================
 
 This project benchmarks parallel compression using multiple algorithms: 
 Zstd, LZ4, Snappy, Bzip2, Zlib, and FastLZ using C++17 and OpenMP.
@@ -92,6 +92,7 @@ Each result CSV file includes:
 --threads    : Number of OpenMP threads
 --bits       : Data bit width (e.g., 64)
 --method     : One of [zstd, snappy, lz4, bzip2, zlib, fastlz]
+
 
 
 
