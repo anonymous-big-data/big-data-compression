@@ -24,7 +24,7 @@
 #SBATCH --export=ALL                 # Export current env vars to job
 
 # E-mail notifications
-#SBATCH --mail-user=jamalids@mcmaster.ca
+#SBATCH --mail-user=
 #SBATCH --mail-type=begin            # Send email when job starts
 #SBATCH --mail-type=end              # Send email when job ends
 
