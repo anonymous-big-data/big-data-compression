@@ -5,7 +5,7 @@
 #SBATCH --job-name="gdeflate_cpu_compression"
 #SBATCH --mail-type=begin  # Email when the job starts
 #SBATCH --mail-type=end    # Email when the job finishes
-#SBATCH --mail-user=jamalids@mcmaster.ca
+#SBATCH --mail-user=
 #SBATCH --nodes=1
 #SBATCH --output="gdeflate_cpu_compression.%j.%N.out"
 #SBATCH --constraint=rome
@@ -18,9 +18,9 @@ module load cmake/3.27.7
 export LD_LIBRARY_PATH=/usr/local/cuda-12.3/targets/x86_64-linux/lib:$LD_LIBRARY_PATH
 
 # Define paths
-DATASET_DIR="/home/jamalids/Documents/2D/data1/Fcbench/Fcbench-dataset/32"
-EXECUTABLE="/home/jamalids/development/big-data-compression/gpu-compression/examples/cmake-build-debug/nvcomp_gds"
-RESULTS_DIR="/home/jamalids/Documents/results1"
+DATASET_DIR=""
+EXECUTABLE=""
+RESULTS_DIR=""
 
 mkdir -p "$RESULTS_DIR"
 
@@ -51,3 +51,4 @@ for dataset in "$DATASET_DIR"/*.tsv; do
 done
 
 echo "=====> All datasets processed successfully <====="
+
