@@ -1,6 +1,3 @@
-//
-// Created by jamalids on 05/12/24.
-//
 
 #ifndef BZ2_PARALLEL_H
 #define BZ2_PARALLEL_H
@@ -275,3 +272,4 @@ double calculateCompressionRatio(size_t originalSize, size_t compressedSize) {
 
 
 #endif //BZ2_PARALLEL_H
+
