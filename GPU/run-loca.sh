@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ---- CONFIG (edit if your paths differ) ----
+# ---- CONFIG (edit f your paths ) ----
 DATASET_DIR="
 EXECUTABLE="./nvcomp_gds"
 RESULTS_DIR="./results1"
@@ -65,3 +65,4 @@ echo "=====> All datasets processed successfully <====="
     #
 
     #NVCOMP_CODEC=zstd ./run_local.sh
+
